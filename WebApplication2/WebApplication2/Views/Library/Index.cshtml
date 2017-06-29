@@ -1,0 +1,41 @@
+@model LibraryViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<!--@{ 
+    var i = 0;
+    while (i < 5)
+    {
+<p> s@Html.DisplayFor(model => model.BookNumber[i])  s@Html.DisplayFor(model => model.BookName[i])  s@Html.DisplayFor(model => model.Author[i])</p>
+        i += 1;
+    }
+    }
+-->
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Books)
+        {
+
+            <tr>
+                <td>@book.Id</td> 
+                <td>@book.Name</td> 
+                <td>@book.Author</td>
+                <td>@Html.ActionLink("Borrow","Borrow", new { id=@book.Id } ,new { @class="btn btn-primary" })</td>
+            </tr>
+        }
+    </tbody>
+</table>

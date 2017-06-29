@@ -1,0 +1,16 @@
+@using WebApplication2.Models.LibraryViewModels
+@model BorrowViewModel
+
+@{
+    ViewData["Title"] = "Borrow";
+}
+
+<h2>Borrow</h2>
+
+@if (Model.IsSuccessful)
+{
+    <p>Success; @Model.BookName</p>
+}
+else{
+    <p>Error</p>
+}
